@@ -1,4 +1,4 @@
-// const asyncHandler = (fb)=> async(req,res,next)=>{
+// const asyncHandler = (fn)=> async(req,res,next)=>{
 
 //     try {
 //         await fn(req,res,next){
@@ -13,13 +13,13 @@
 
 // }
 
-
+//the above method was using try catch
 
 // export {asyncHandler};
 
 
 const asyncHandler = (requestHandler) => {
-    (req,res,next) => {
+    return (req,res,next) => {
         Promise.resolve(requestHandler(req,res,next))
         .catch((error)=>{
             next(error)
