@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { loginUser, logoutUser, registerUser } from "../controllers/user.controller.js";
-import { verifyJwt } from "../middlewares/auth.middleware.js";
+import { loginUser, logoutUser, refreshAccessToken, registerUser } from "../controllers/user.controller.js";
+import { verifyJWT } from "../middlewares/auth.middleware.js";
 import { upload } from "../middlewares/multer.middleware.js";
 const router = Router();
 
@@ -23,6 +23,8 @@ router.route("/login").post(loginUser)
 
 //secured routes
 
-router.route("/logout").post(verifyJwt,logoutUser) //here we use next( which we used in middleware)
+router.route("/logout").post(verifyJWT,logoutUser)
+router.route("/refresh-token").post(refreshAccessToken)
+ //here we use next( which we used in middleware)
 
 export default router;
