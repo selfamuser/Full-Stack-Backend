@@ -1,0 +1,23 @@
+user = {
+    id,
+    watchHistory - ObjectId[]
+    username,
+    email,
+    fullName,
+    avatar,
+    coverImage,
+    password,
+    refreshToken,
+    createdAt,
+    updatedAt
+}
+
+videos = {
+    id,
+    videoFile,
+    thumbnail,
+    owner - ObjectId[]
+    title,
+    description,
+    
+}
